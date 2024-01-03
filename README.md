@@ -13,11 +13,11 @@
 
 ### 2、Babylon Native
 > 使用 Node.js (约 20 MB)，使用 N-API 通讯
-- Windows：DirectX
+- Windows：D3D11 (default), D3D12, or Vulkan
 - macOS：Metal
-- Linux
 - iOS：Metal
-- Android：OpenGL/Vulkan
+- Android：OpenGL (default), Vulkan
+- Linux：OpenGL (default), Vulkan
 
 ### 3、Babylon React Native
 > 使用 React Native + Babylon Native，使用 JSI 通讯
@@ -45,18 +45,8 @@ cmake -B build/win32_x86 -A Win32
 # for UWP
 cmake -B build/uwp_arm64 -D CMAKE_SYSTEM_NAME=WindowsStore -D CMAKE_SYSTEM_VERSION=10.0 -A arm64
 
-# for HoloLens 2
+# for HoloLens 2（XR）
 # ...
-```
-
-### Android（on Windows）
-- Android Studio
-- Ninja
-
-```bash
-# for Android 5.0 with an OpenGL ES 3.0 compatible GPU
-# jsEngine=JavaScriptCore  支持两种 JavaScript 引擎：V8(默认) 和 JavaScriptCore
-
 ```
 
 ### macOS/iOS
@@ -72,9 +62,22 @@ cmake -B build/macOS -G Xcode
 cmake -B build/iOS -G Xcode -D IOS=ON
 ```
 
-### Linux（on Ubuntu）
-- Clang or GCC
+### Android（on Windows）
+- Android Studio
+- Ninja
 
 ```bash
-# ...
+# for Android 5.0 with an OpenGL ES 3.0 compatible GPU
+# 支持两种 JavaScript 引擎：V8(默认) 和 JavaScriptCore
+Android Studio
+```
+
+### Linux（on Ubuntu）
+- Clang or GCC
+- JavaScriptCore or V8
+
+```bash
+# 需要手动安装依赖
+cmake -G Ninja -D NAPI_JAVASCRIPT_ENGINE=V8
+ninja
 ```
