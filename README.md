@@ -26,3 +26,55 @@
 
 ## JS+Native 架构
 ![Babylon Native](https://miro.medium.com/v2/resize:fit:720/format:webp/1*0PkLts2H4m082-sr4bwILw.png)
+
+## 编译（交叉编译）
+- git
+- CMake
+- node.js
+
+### Windows
+- Visual Studio 2019
+- Python 3.0
+
+```bash
+# for x64
+cmake -B build/win32
+# for x86
+cmake -B build/win32_x86 -A Win32
+
+# for UWP
+cmake -B build/uwp_arm64 -D CMAKE_SYSTEM_NAME=WindowsStore -D CMAKE_SYSTEM_VERSION=10.0 -A arm64
+
+# for HoloLens 2
+# ...
+```
+
+### Android（on Windows）
+- Android Studio
+- Ninja
+
+```bash
+# for Android 5.0 with an OpenGL ES 3.0 compatible GPU
+# jsEngine=JavaScriptCore  支持两种 JavaScript 引擎：V8(默认) 和 JavaScriptCore
+
+```
+
+### macOS/iOS
+- Xcode 11
+- Python 3.0
+
+```bash
+# for macOS
+cmake -B build/macOS -G Xcode
+
+# for iOS
+# -D ENABLE_BITCODE=ON  启用 bitcode 
+cmake -B build/iOS -G Xcode -D IOS=ON
+```
+
+### Linux（on Ubuntu）
+- Clang or GCC
+
+```bash
+# ...
+```
