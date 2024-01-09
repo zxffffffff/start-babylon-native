@@ -38,7 +38,8 @@
 
 ```bash
 # for x64
-cmake -B build/win32
+# 支持两种 JavaScript 引擎: Chakra (默认) 和 V8
+cmake -B build/win32 -D NAPI_JAVASCRIPT_ENGINE=V8
 # for x86
 cmake -B build/win32_x86 -A Win32
 
@@ -68,7 +69,7 @@ cmake -B build/iOS -G Xcode -D IOS=ON
 
 ```bash
 # for Android 5.0 with an OpenGL ES 3.0 compatible GPU
-# 支持两种 JavaScript 引擎：V8(默认) 和 JavaScriptCore
+# 支持两种 JavaScript 引擎: V8 (默认) 和 JavaScriptCore
 Android Studio
 ```
 
@@ -78,6 +79,6 @@ Android Studio
 
 ```bash
 # 需要手动安装依赖
-cmake -G Ninja -D NAPI_JAVASCRIPT_ENGINE=V8
+cmake -B build/Linux -G Ninja -D NAPI_JAVASCRIPT_ENGINE=V8
 ninja
 ```
