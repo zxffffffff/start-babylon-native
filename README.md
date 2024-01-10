@@ -12,7 +12,7 @@
 - Web：WebGL/WebGPU/WebXR
 
 ### 2、Babylon Native
-> 使用 Node.js (约 20 MB)，使用 N-API 通讯
+> 使用 JS Engine (v8 大约 16MB)，使用 N-API 通讯
 - Windows：D3D11 (default), D3D12, or Vulkan
 - macOS：Metal
 - iOS：Metal
